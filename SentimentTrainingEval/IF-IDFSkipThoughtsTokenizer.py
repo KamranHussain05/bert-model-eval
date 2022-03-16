@@ -64,7 +64,7 @@ pipeline_both = Pipeline(steps=[feature_union,
                         ('classifier', LogisticRegression())])
 
 
-for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, len(phrase_train)):
+for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, 15000, len(phrase_train)):
     print(train_size, '--------------------------------------')
     # skipthought
     pipeline_skipthought.fit(phrase_train[:train_size], classes_train[:train_size])
