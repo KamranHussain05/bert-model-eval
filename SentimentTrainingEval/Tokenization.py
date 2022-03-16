@@ -7,10 +7,6 @@ import json
 
 import skipthoughts
 
-from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.linear_model import LogisticRegression
-from sklearn.feature_extraction.text import TfidfVectorizer
-
 def load_dict():
     with open('dict.json', 'r') as f:
         return json.load(f)
@@ -44,20 +40,6 @@ class SkipThoughtsVectorizer(object):
     def transform(self, raw_documents, copy=True):
         return self.fit_transform(raw_documents, None)
 
-feature_union = ('feature_union', FeatureUnion([
-        ('skipthought', SkipThoughtsVectorizer()),
-        ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
-    ]))
-    pipeline_both = Pipeline(steps=[feature_union,
-                                    ('classifier', LogisticRegression())])
-
-for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, len(tweets_train)):
-    print(train_size, '--------------------------------------')
-
-classes_train[:train_size])
-    # both
-    pipeline_both.fit(tweets_train[:train_size], classes_train[:train_size])
-    print('skipthought+tfidf', pipeline_both.score(tweets_test, classes_test))
 
 if __name__ == '__main__':
     main()
