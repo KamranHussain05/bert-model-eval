@@ -23,6 +23,7 @@ sdist/
 var/
 wheels/
 *.egg-info/
+SkipThoughtResources/
 .installed.cfg
 *.egg
 MANIFEST

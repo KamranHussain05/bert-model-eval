@@ -1,5 +1,5 @@
 import pandas as pd
-from skipthoughtsmaster import skipthoughts
+from SkipThoughtsMaster import skipthoughts
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.linear_model import LogisticRegression
