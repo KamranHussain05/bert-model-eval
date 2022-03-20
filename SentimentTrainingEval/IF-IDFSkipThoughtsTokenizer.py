@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from SkipThoughtsMaster import skipthoughts
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
@@ -50,21 +51,27 @@ classes_train = classes_train.tolist()
 classes_eval = classes_eval.tolist()
 
 
-# Define pipelines for skip-thoughts and tf-idf
+# Define pipelines for skipthought
 pipeline_skipthought = Pipeline(steps=[('vectorizer', SkipThoughtsVectorizer()),
                         ('classifier', LogisticRegression())])
+
+# Define pipeline for TF-IDF
 pipeline_tfidf = Pipeline(steps=[('vectorizer', TfidfVectorizer(ngram_range=(1, 2))),
                         ('classifier', LogisticRegression())])
 
+# Define the feature unions of the two pipelines
 feature_union = ('feature_union', FeatureUnion([
     ('skipthought', SkipThoughtsVectorizer()),
     ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
 ]))
+
+# Define the combined skip-thought and TF-IDF pipeline
 pipeline_both = Pipeline(steps=[feature_union,
-                        ('classifier', LogisticRegression())])
+                        ('classifier', LogisticRegression(max_iter=1000000000))])
 
-
-for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, len(phrase_train)):
+# Train the pipelines on the data and create vectors of the data
+print("TRAINING PIPELINES")
+for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, 5000, 10000, 15000, len(phrase_train)):
     print(train_size, '--------------------------------------')
     # skipthought
     pipeline_skipthought.fit(phrase_train[:train_size], classes_train[:train_size])
@@ -79,3 +86,6 @@ for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, len(phrase_train)):
     print('skipthought+tfidf', pipeline_both.score(phrase_eval, classes_eval))
 
 
+# Save the model with the trained Weights and vectors
+print("SAVING MODEL")
+joblib.dump(pipeline_both, 'skipthought-IFIDF_model.pkl')
