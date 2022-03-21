@@ -3,6 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pandas import DataFrame
+import tensorflow as tf
+import numpy as np
+from tensorflow.keras import layers
+import stanza
 
 print("Loading data...")
 path = 'daily_weather_2020.csv'
@@ -45,3 +49,8 @@ print("Visualizing Data...")
 sns.countplot(df.labels)
 plt.show()
 print(df['labels'].value_counts())
+
+# Setup the Stanza pipeline and tokenize and lemmatize the data
+nlp = stanza.Pipeline('en', processors='tokenize, lemma', use_gpu=True)
+
+# Setup the tensorflow pipeline and models for word2vec, not using pretrains
