@@ -98,7 +98,6 @@ for i in range(len(df)):
     printProgressBar(i, len(df), prefix="Split and Lemmatize Data")
 
 
-
 # Setup the tensorflow pipeline and models for word2vec, not using pretrains
 
 
