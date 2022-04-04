@@ -25,7 +25,7 @@ class SkipThoughtsVectorizer(object):
 
 
 # Read the file
-df = pd.read_csv('daily_weather_2020.csv', usecols=['summary', 'icon'], low_memory=True, dtype=str, encoding="utf-8")
+df = pd.read_csv('../SentimentTrainingEval/daily_weather_2020.csv', usecols=['summary', 'icon'], low_memory=True, dtype=str, encoding="utf-8")
 df = df.rename(columns={'summary':'text', 'icon': 'labels'})
 
 # Set up the validation column in the dataframe without modifying the raw data
@@ -88,4 +88,4 @@ for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, 5000, 10000, 15000, 
 
 # Save the model with the trained Weights and vectors
 print("SAVING MODEL")
-joblib.dump(pipeline_both, 'skipthought-IFIDF_model.pkl')
+joblib.dump(pipeline_both, '../SentimentTrainingEval/skipthought-IFIDF_model.pkl')

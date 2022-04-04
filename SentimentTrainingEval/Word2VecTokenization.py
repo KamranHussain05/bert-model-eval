@@ -2,10 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pandas import DataFrame
-import tensorflow as tf
-import numpy as np
-from tensorflow.keras import layers
 import stanza
+import word2vec
 
 # Progress bae
 # Print iterations progress
@@ -91,13 +89,16 @@ def LemmatizeAndSplit(phrase):
 lemmatized = LemmatizeAndSplit(df.text[0])
 print(lemmatized)
 print(len(df))
-tokens = df
-print(len(tokens))
 for i in range(len(df)):
     df.text[i] = LemmatizeAndSplit(df.text[i])
     printProgressBar(i, len(df), prefix="Split and Lemmatize Data")
 
+# Save the data to a text file
+df['text'].to_csv('Word2VecTrainingData.text', index=False)
 
-# Setup the tensorflow pipeline and models for word2vec, not using pretrains
+# Setup the pipeline and models for word2vec, not using pretrains
+vectorizer = word2vec(sentences="Word2vecTrainingData.text", min_count=1, workers=4, sg=1, iter=10)
+vectorizer.save_model("Word2VecTrainingData.model")
 
+vectorizer.predict("hello there")
 
