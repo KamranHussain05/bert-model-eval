@@ -4,7 +4,7 @@ import fasttext
 import pandas as pd
 
 # Create the training text file
-df = pd.read_csv('/home/kamran/Documents/bert-model-eval/SentimentTrainingEval/daily_weather_training_data.csv', usecols=['text'])
+df = pd.read_csv('/Users/kamranhussain/Documents/GitHub/bert-model-eval/SentimentTrainingEval/daily_weather_training_data.csv', usecols=['text'])
 df['text'].to_csv('training_text.txt', index=False, header=False, sep='\n')
 
 
