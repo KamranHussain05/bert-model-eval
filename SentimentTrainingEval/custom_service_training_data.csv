@@ -1,6 +1,12 @@
 "Text", Label
-The drone is planned to fly from here to Seattle to deliver the requested goods. It should try to avoid as many stops as possible to limit the transit time and fuel consumed. ,0
 "Next week, we expect to see clear skies and low wind speeds, but with some higher temperatures. This weather should be suitable for any aircraft traveling during the day. ",1
-A wildfire in the diablo mountain range has started and drone services were recommended. A no fly zone over that region is recommended to avoid any flight mishaps. Emergency vehicles should also request extra weather data to ensure supplies are delivered safely and timely. ,2
-A few hundred vehicles are expected to pass through this waypoint throughout the day. Extra fuel should be ordered for the increase in traffic through this station.,3
+A wildfire has been detected along the mountain range. There is a no-fly-zone established for safety and nearby response vehicles are requested for fire control ,2
 Several vehicles are in close proximity to each other and should coordinate priorities and movements to ensure safe operation.,4
+Warm weather throughout the day with high visibility,1
+Drone AJ82H is landing on platform 4C with a mechanic request,3
+Modifying flight plan from KSC to FLL,0
+Drone J232B is about to enter restricted airspace,4
+"A wildfire has been detected in the fields, emergency services must be notified","4,2"
+Requesting airports near Miami,0
+Low on fuel and may not safely make it to the destination,0
+Strong thunder clouds forming 200 miles west,1
