@@ -8,7 +8,8 @@ df = pd.read_csv('/home/kamran/Documents/bert-model-eval/SentimentTrainingEval/d
 df['text'].to_csv('training_text.txt', index=False, header=False, sep='\n')
 
 
-model = fasttext.train_unsupervised(input="training_text.txt", model="cbow", epoch=50, dim=256)
+model = fasttext.train_unsupervised(input="training_text.txt", model="cbow", epoch=5, dim=256)
 model.save_model("fasttexttokenizer.bin")
 
 print(model.get_word_vector('clear weather throughout the day'))
+
