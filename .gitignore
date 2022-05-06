@@ -118,4 +118,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-SentimentTrainingEval/skipthought-IFIDF_model.pkl
+Tokenizers/skipthought-IFIDF_model.pkl
