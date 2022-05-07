@@ -88,4 +88,4 @@ for train_size in (20, 50, 100, 200, 500, 1000, 2000, 3000, 5000, 10000, 15000, 
 
 # Save the model with the trained Weights and vectors
 print("SAVING MODEL")
-joblib.dump(pipeline_both, '../SentimentTrainingEval/skipthought-IFIDF_model.pkl')
+joblib.dump(pipeline_both, 'skipthought-IFIDF_model.pkl')

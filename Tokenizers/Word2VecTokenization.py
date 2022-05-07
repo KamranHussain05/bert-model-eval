@@ -29,7 +29,7 @@ def printProgressBar(iteration, total, prefix='', suffix='Completed', decimals=1
         print('\r')
 
 print("Loading data...")
-path = 'daily_weather_2020.csv'
+path = '../SentimentTrainingEval/daily_weather_2020.csv'
 df = pd.read_csv(path, usecols=['summary', 'icon'], low_memory=True, encoding='utf-8', dtype='str')
 df.columns = ['text', 'labels']
 
